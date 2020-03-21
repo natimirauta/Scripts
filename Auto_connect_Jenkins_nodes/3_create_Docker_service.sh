@@ -13,11 +13,11 @@ DOCKER_IMAGE=$DOCKER_REGISTRY_LINK/$DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VER
 
 SERVICE_REPLICAS=1
 
-echo "Creating Docker service"
+echo "[  OK  ] Creating Docker service"
 
-sudo docker service create --name=$SERVICE_NAME --replicas=$SERVICE_REPLICAS $DOCKER_IMAGE
+docker service create --name=$SERVICE_NAME --replicas=$SERVICE_REPLICAS $DOCKER_IMAGE
 
-echo "Done creating Docker service"
+echo "[  OK  ] Done creating Docker service"
 
 sh ./4_connect_service_to_node.sh $SERVICE_NAME $SECRET $NODE_NAME $JENKINS_URL
 
