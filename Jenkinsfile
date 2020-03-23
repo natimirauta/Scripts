@@ -23,7 +23,7 @@ node("master") {
             JENKINS_LINK  = "http://192.168.1.9:8080/"
             
             dir(SCRIPTS_PATH) {
-				sh "1_create_Jenkins_node.sh ${NEW_NODE_NAME} ${JENKINS_LINK} ${JOB_NAME} ${BUILD_NUMBER}"
+				sh "./1_create_Jenkins_node.sh ${NEW_NODE_NAME} ${JENKINS_LINK} ${JOB_NAME} ${BUILD_NUMBER}"
             }
             
         }    
@@ -43,7 +43,7 @@ node("master") {
 			
 			dir(SCRIPTS_PATH) {
 			
-				sh "5_cleanup_after_Docker.sh ${NEW_NODE_NAME} ${JENKINS_LINK} ${SERVICE_NAME}"
+				sh "./5_cleanup_after_Docker.sh ${NEW_NODE_NAME} ${JENKINS_LINK} ${SERVICE_NAME}"
 			
 			}
 		
