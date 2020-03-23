@@ -9,6 +9,8 @@ node("master") {
 
 	SCRIPTS_PATH = "Scripts/Auto_connect_Jenkins_nodes"
 
+    sh 'whoami'
+
 	cleanWs()
 
 	dir("Scripts") {
