@@ -15,8 +15,6 @@ SERVICE_REPLICAS=1
 
 echo "[  OK  ] Creating Docker service"
 
-whoami
-
 docker service create --name=$SERVICE_NAME --replicas=$SERVICE_REPLICAS $DOCKER_IMAGE
 
 echo "[  OK  ] Done creating Docker service"

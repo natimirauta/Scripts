@@ -9,16 +9,13 @@ node("master") {
 
 	SCRIPTS_PATH = "Scripts/Auto_connect_Jenkins_nodes"
 
-    sh 'whoami'
-    sh 'docker ps'
-
 	cleanWs()
 
 	dir("Scripts") {
 		git credentialsId: 'SSH_cred', url: 'git@github.com:natimirauta/Scripts.git'
     }
     
-    // try{
+    try{
 
         stage("Initialize environment") {
 
@@ -31,14 +28,14 @@ node("master") {
             
         }    
 
-    // } catch (e) {
+    } catch (e) {
 
-		// RESULT = FAIL
-		// echo "Failed to initialize environment"
+		RESULT = FAIL
+		echo "Failed to initialize environment"
 		
-	// }
+	}
 
-	// try {
+	try {
 	
 		stage("Cleanup after Docker") {
 		
@@ -52,11 +49,11 @@ node("master") {
 		
 		}
 	
-	// } catch(e) {
+	} catch(e) {
 	
-		// RESULT = FAIL
-		// echo "Failed to clean after Docker"
+		RESULT = FAIL
+		echo "Failed to clean after Docker"
 	
-	// }
+	}
 
 }
