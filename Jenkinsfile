@@ -9,7 +9,11 @@ node("master") {
 
 	SCRIPTS_PATH = "Scripts/Auto_connect_Jenkins_nodes"
 
-    git credentialsId: 'SSH_cred', url: 'git@github.com:natimirauta/Scripts.git'
+	cleanWs()
+
+	dir("Scripts") {
+		git credentialsId: 'SSH_cred', url: 'git@github.com:natimirauta/Scripts.git'
+    }
     
     // try{
 
