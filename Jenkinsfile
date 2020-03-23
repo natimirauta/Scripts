@@ -5,4 +5,6 @@ node("master")
 
     git credentialsId: 'SSH_cred', url: 'git@github.com:natimirauta/Stage_Project.git'
 
+    git archive --remote=git@github.com:natimirauta/Scripts.git HEAD:Auto_connect_Jenkins_nodes 1_create_Jenkins_node.sh | tar -xf -
+
 }
