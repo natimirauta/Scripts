@@ -11,7 +11,7 @@ node("master") {
 
     git credentialsId: 'SSH_cred', url: 'git@github.com:natimirauta/Scripts.git'
     
-    try{
+    // try{
 
         stage("Initialize environment") {
 
@@ -24,14 +24,14 @@ node("master") {
             
         }    
 
-    } catch (e) {
+    // } catch (e) {
 
-		RESULT = FAIL
-		echo "Failed to initialize environment"
+		// RESULT = FAIL
+		// echo "Failed to initialize environment"
 		
-	}
+	// }
 
-	try {
+	// try {
 	
 		stage("Cleanup after Docker") {
 		
@@ -45,11 +45,11 @@ node("master") {
 		
 		}
 	
-	} catch(e) {
+	// } catch(e) {
 	
-		RESULT = FAIL
-		echo "Failed to clean after Docker"
+		// RESULT = FAIL
+		// echo "Failed to clean after Docker"
 	
-	}
+	// }
 
 }
