@@ -15,7 +15,7 @@ node("master") {
 
         stage("Initialize environment") {
 
-            NEW_NODE_NAME = $JOB_NAME + "_" + $BUILD_NUMBER
+            NEW_NODE_NAME = "${JOB_NAME}" + "_" + "${BUILD_NUMBER}"
             JENKINS_LINK  = "http://192.168.1.9:8080/"
             
             dir(SCRIPTS_PATH) {
@@ -35,7 +35,7 @@ node("master") {
 	
 		stage("Cleanup after Docker") {
 		
-			SERVICE_NAME = $JOB_NAME + "-" + $BUILD_NUMBER
+			SERVICE_NAME = "${JOB_NAME}" + "-" + "${BUILD_NUMBER}"
 			
 			dir(SCRIPTS_PATH) {
 			
