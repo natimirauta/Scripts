@@ -9,8 +9,11 @@ node("master") {
 
 	SCRIPTS_PATH = "Scripts/Auto_connect_Jenkins_nodes"
 
-	cleanWs()
+    stage("Cleaning workspace") {
+	    cleanWs()
+    }
 
+    // cloning scripts to connect to Docker
 	dir("Scripts") {
 		git credentialsId: 'SSH_cred', url: 'git@github.com:natimirauta/Scripts.git'
     }
@@ -32,8 +35,18 @@ node("master") {
 
 		RESULT = FAIL
 		echo "Failed to initialize environment"
+        exit 1
 		
 	}
+
+    node("${NEW_NODE_NAME}"){
+
+        
+        echo "Running in ${NEW_NODE_NAME}"
+        sleep 30
+
+
+    }
 
 	try {
 	
