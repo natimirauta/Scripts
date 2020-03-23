@@ -10,6 +10,7 @@ node("master") {
 	SCRIPTS_PATH = "Scripts/Auto_connect_Jenkins_nodes"
 
     sh 'whoami'
+    sh 'docker ps'
 
 	cleanWs()
 
